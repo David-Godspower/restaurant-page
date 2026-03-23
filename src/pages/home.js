@@ -2,7 +2,7 @@ export default function loadHome() {
   const content = document.getElementById("content");
 
   const hero = document.createElement("div");
-  hero.classList.add("hero"); // 🔥 THIS is the key line
+  hero.classList.add("hero"); 
 
   const title = document.createElement("h1");
   title.textContent = "David's Restaurant";
