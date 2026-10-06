@@ -1,17 +1,36 @@
+
+  :root {
+    --bg-color: #f8f8f8;
+    --text-color: #333;
+    --card-bg: white;
+    --nav-bg: #333;
+  }
+
+.dark-theme {
+  --bg-color: #121212;
+  --text-color: #f8f8f8;
+  --card-bg: #1e1e1e;
+  --nav-bg: #000;
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  background-color: #f8f8f8;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 header {
-  background-color: #333;
+  background-color: var(--nav-bg);
   padding: 15px;
+  transition: background-color 0.3s ease;
 }
 
 nav {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 20px;
 }
 
@@ -28,61 +47,83 @@ button:hover {
 }
 
 button.active {
-  background-color: #333;
+  background-color: #555;
   color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
 .hero {
-  height: 80vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://images.unsplash.com/photo-1555992336-03a23c7b20ee") center/cover no-repeat;
+  width: 100%;
+  min-height: 100vh; 
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
+    ),
+    url("https://images.unsplash.com/photo-1555992336-03a23c7b20ee");
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   color: white;
   text-align: center;
-  top: 0;
+}
+.hero-content {
+  max-width: 700px;
+  padding: 20px;
 }
 
 .hero h1 {
-  font-size: 48px;
-  margin-bottom: 10px;
+  font-size: 56px;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
 }
 
 .hero p {
   font-size: 20px;
-  max-width: 600px;
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
-
 
 #content {
   text-align: center;
   padding: 40px;
-  margin-bottom: 100px; /* To ensure content doesn't hide behind the fixed footer */
+  margin-bottom: 100px; 
 }
+
 #content h1 {
   margin-bottom: 30px;
 }
+
 .menu-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
   margin-top: 20px;
 }
+
 .menu-item {
-  background: white;
+  background-color: var(--card-bg);
+  color: var(--text-color);
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   text-align: center;
   font-size: 18px;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
 .menu-item:hover {
   transform: scale(1.05);
   cursor: pointer;
 }
+
 .menu-item img {
   width: 100%;
   height: 200px;
@@ -90,42 +131,84 @@ button.active {
   border-radius: 10px;
 }
 
-
-/* Footer styles*/
 footer {
-  background-color: #333;
+  background-color: var(--nav-bg);
   color: white;
   text-align: center;
   padding: 15px;
   position: fixed;
   width: 100%;
   bottom: 0;
+  transition: background-color 0.3s ease;
 }
+
 footer a {
   color: #f39c12;
   text-decoration: none;
 }
+
 footer a:hover {
   text-decoration: underline;
   font-size: 18px;
 }
+
 footer p {
   margin: 0;
 }
+
 footer .icons {
   margin-top: 10px;
 }
+
 footer .icons a {
   margin: 0 10px;
   font-size: 20px;
 }
+
 footer .icons a:hover {
   color: #f39c12;
 }
 
 
-@media (max-width: 600px) {
-  .menu-grid {
-    grid-template-columns: 1fr;
-  }
+
+.cta-btn {
+  margin-top: 20px;
+  padding: 15px 30px;
+  background-color: #f39c12;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cta-btn:hover {
+  background-color: #e67e22;
+  transform: translateY(-3px); 
+  color: white;
+}
+
+.info-section {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 50px;
+  padding: 0 20px;
+  flex-wrap: wrap; 
+}
+
+.info-card {
+  background-color: var(--card-bg); 
+  color: var(--text-color);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  min-width: 250px;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.info-card h3 {
+  margin-top: 0;
+  color: #f39c12; 
 }
