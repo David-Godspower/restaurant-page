@@ -7,7 +7,9 @@ export default function loadAbout(){
 
     container.appendChild(title);
 
-    const aboutDetails = document.createElement("p");
+    const aboutDetails = document.createElement("div");
+    aboutDetails.classList.add("aboutSection");
+    
     aboutDetails.textContent = "We are a team of passionate food enthusiasts dedicated to providing the best dining experience.";
 
     container.appendChild(aboutDetails);
